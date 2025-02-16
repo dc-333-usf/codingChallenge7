@@ -62,3 +62,9 @@ const calculateLoanInterest = (principal, rate, years) => {
 
 console.log(calculateLoanInterest(1000, 0.05, 3));
 console.log(calculateLoanInterest(5000, 0.07, 5));
+
+//Task 6: Higher-order functions. Filtering high-value transactions scenario.
+const transactions = [200, 850, 600, 150, 1000, 2000, 6500]; //decalre array of transactions
+const over1000 = transactions.filter(prc => prc >= 1000); //create a filtered array of only transactions over 1000
+
+console.log(over1000); //log the filtered array
