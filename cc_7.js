@@ -68,3 +68,15 @@ const transactions = [200, 850, 600, 150, 1000, 2000, 6500]; //decalre array of 
 const over1000 = transactions.filter(prc => prc >= 1000); //create a filtered array of only transactions over 1000
 
 console.log(over1000); //log the filtered array
+
+//Task 7: Closures. Budget tracker scenario.
+function createBudgetTracker() { //create the function
+    let total = 0; //let the total begin at 0
+    return function(balance) { //the inital function will return a new function that takes the parameter "balance"
+        return total += balance; //then, the function that was created will return the total plus the balance that is added through the function
+    };
+}
+
+let budget = createBudgetTracker(); //create a variable, budget, that uses the closure to create the tracking function
+console.log(budget(300)); //test data
+console.log(budget(200));
