@@ -1,0 +1,1 @@
+This is coding challenge 7 for my business application development class
