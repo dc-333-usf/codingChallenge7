@@ -32,3 +32,24 @@ const calculateLoyaltyDiscount = (amount, years) => { //use arrow to create func
 
 console.log(calculateLoyaltyDiscount(100, 6)); //test data
 console.log(calculateLoyaltyDiscount(200, 2));
+
+//Task 4: parameters and arguments. Product shipping cost calculation scenario.
+function calculateShippingCost(weight, location, expedited = false) { //declaare function with parameters
+    let cost = 0; //initialize the cost variable
+    if (location === "USA") { //check if location is "USA"
+        cost += 5 + (0.5 * weight); //5 dollars plus 50 cents for each pound is the shipping rate for USA
+    } else if (location === "Canada") { //check if location is "Canada"
+        cost += 10 + (0.7 * weight); //10 dollars plus 70 cents per pound is the Canada shipping rate
+    } else { //if location doesn't equal either of these
+        return `Please enter a valid location.`; //ask user to use a valid location
+    }
+
+    if (expedited === true) { //another if condition checking if the order is expedited
+        cost += 10 //if it is, add 10 dollars to the shipping cost
+    }
+
+    return `Shipping Cost: $${cost.toFixed(2)}` //return the shipping cost to two decimal places, inserting the variable using template literals
+}
+
+console.log(calculateShippingCost(10, "USA", true)); //test data
+console.log(calculateShippingCost(5, "Canada", false));
