@@ -15,3 +15,20 @@ const calculateHourlyWage = function(salary, hoursPerWeek) { //function expressi
 
 console.log(calculateHourlyWage(52000, 40)); //test data
 console.log(calculateHourlyWage(52000, 40));
+
+//Task 3: arrow function. Customer loyalty discount scenario.
+const calculateLoyaltyDiscount = (amount, years) => { //use arrow to create function
+    if (years >= 5) { //create first if statement
+        discountedAmount = amount * 0.85; //use formula to return 85% of the initial amount (15% discount)
+    }
+    else if (years >= 3) { //if the first condition is not true, it checks to see if this one is, giving a 10 percent discount if true
+        discountedAmount = amount * 0.9;
+    }
+    else { //if neither of the first two conditions are true, it will give a 5 percent discount
+        discountedAmount = amount * 0.95;
+    }
+    return `Discounted Price: $${discountedAmount.toFixed(2)}`; //return a string that uses template literals to insert the discounted amount, the amount is set to go to 2 decimal places
+}
+
+console.log(calculateLoyaltyDiscount(100, 6)); //test data
+console.log(calculateLoyaltyDiscount(200, 2));
