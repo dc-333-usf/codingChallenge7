@@ -63,13 +63,13 @@ const calculateLoanInterest = (principal, rate, years) => {
 console.log(calculateLoanInterest(1000, 0.05, 3));
 console.log(calculateLoanInterest(5000, 0.07, 5));
 
-//Task 6: Higher-order functions. Filtering high-value transactions scenario.
+//Task 6: higher-order functions. Filtering high-value transactions scenario.
 const transactions = [200, 850, 600, 150, 1000, 2000, 6500]; //decalre array of transactions
 const over1000 = transactions.filter(prc => prc >= 1000); //create a filtered array of only transactions over 1000
 
 console.log(over1000); //log the filtered array
 
-//Task 7: Closures. Budget tracker scenario.
+//Task 7: closures. Budget tracker scenario.
 function createBudgetTracker() { //create the function
     let total = 0; //let the total begin at 0
     return function(balance) { //the inital function will return a new function that takes the parameter "balance"
@@ -80,3 +80,15 @@ function createBudgetTracker() { //create the function
 let budget = createBudgetTracker(); //create a variable, budget, that uses the closure to create the tracking function
 console.log(budget(300)); //test data
 console.log(budget(200));
+
+//Task 8: recursion in JavaScript. Business growth projection scenario.
+function calculateGrowth(years, revenue) { //create the function
+    if (years >= 10) { //if statement to check if years are greater than or equal to 10
+        return `Projected Revenue: $${revenue.toFixed(2)}`; //once this condition is fulfilled, return the revenue to 2 decimal places
+    } else { //if years is not at least ten
+        return calculateGrowth((years + 1), (revenue * 1.05)); //then call the original function, adding one to the years and 5 percent to revenue, this will keep happening until years equals 10
+    };
+}
+
+console.log(calculateGrowth(8, 1000)); //test data
+console.log(calculateGrowth(5, 5000));
